@@ -7,6 +7,7 @@ module App
   require 'dotenv'
   require 'unsplash'
   require 'httparty'
+  require 'telegram/bot'
 
   require_relative 'converter.rb'
   require_relative 'config.rb'

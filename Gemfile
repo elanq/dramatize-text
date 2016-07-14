@@ -7,6 +7,7 @@ gem 'pry'
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'unsplash'
 gem 'httparty'
+gem 'telegram-bot-ruby'
 
 
 group :test, :development do

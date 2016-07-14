@@ -13,9 +13,9 @@ module App
     def place_text(text)
       # draw object, width, height, x, y, text
       txt = Draw.new
-      text = fit_text(text, 1200)
+      text = fit_text(text, 900)
+      txt.font = 'lib/font/neue.ttf'
       @image.annotate(txt, 0, 0, 0, @size / 8, text) do
-        txt.font_family 'helvetica'
         txt.font_weight = 300
         txt.gravity = Magick::NorthGravity
         txt.pointsize = 80
@@ -48,8 +48,8 @@ module App
     def text_fit?(text, width)
       tmp_image = Image.new(width, 1200)
       drawing = Draw.new
+      drawing.font = 'lib/font/neue.ttf'
       drawing.annotate(tmp_image, 0, 0, 0, 0, text) do |txt|
-        txt.font_family 'helvetica'
         txt.font_weight = 300
         txt.gravity = Magick::NorthGravity
         txt.pointsize = 80
@@ -66,24 +66,17 @@ module App
         i = 0
         text.split(separator).each do |word|
           tmp_line = i == 0 ? line + word : line + separator + word
-
           if text_fit?(tmp_line, width)
-            unless i == 0
-              line += separator
-            end
-            line += word
+            line += separator unless i == 0
           else
-            unless i == 0
-              line +=  '\n'
-            end
-            line += word
+            line += '\n' unless i == 0
           end
+          line += word
           i += 1
         end
         text = line
       end
       text
     end
-
   end
 end
