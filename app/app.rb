@@ -8,6 +8,7 @@ module App
   require 'unsplash'
   require 'httparty'
   require 'telegram/bot'
+  require 'logger'
 
   require_relative 'converter.rb'
   require_relative 'config.rb'
