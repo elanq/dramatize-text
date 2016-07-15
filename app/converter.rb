@@ -30,13 +30,11 @@ module App
     end
 
     def write_to(path)
-      begin
-        path = File.new(path, 'w+') if path.class == String
-        @image.write(path.path)
-        true
-      rescue StandardError => _e
-        false
-      end
+      path = File.new(path, 'w+') if path.class == String
+      @image.write(path.path)
+      true
+    rescue StandardError => _e
+      false
     end
 
     def custom_image=(image)
